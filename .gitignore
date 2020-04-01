@@ -2,6 +2,12 @@
 .idea
 .vscode
 
+# dataset files
+data
+
+# weight files
+*.pth
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
