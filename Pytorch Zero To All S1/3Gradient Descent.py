@@ -21,7 +21,7 @@ def gradient(x, y):
 print('predict (before): {} -> {:.3f}'.format(4, forward(4)))
 
 # Training loop
-for epoch in range(50):
+for epoch in range(30):
     lr = 0.01
     loss_val = 0
 
