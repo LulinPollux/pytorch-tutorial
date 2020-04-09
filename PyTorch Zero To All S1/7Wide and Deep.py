@@ -25,7 +25,7 @@ class Model(torch.nn.Module):
 model = Model()
 
 criterion = torch.nn.BCELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 for epoch in range(100):
     y_pred = model(x_data)
