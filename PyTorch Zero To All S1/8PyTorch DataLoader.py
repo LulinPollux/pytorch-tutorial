@@ -18,6 +18,7 @@ class DiabetesDataset(torch.utils.data.Dataset):
         return self.len
 
 
+# Data Loader로 데이터 로딩
 dataset = DiabetesDataset()
 train_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=32, shuffle=True, num_workers=0)
 
