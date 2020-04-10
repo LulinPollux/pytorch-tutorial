@@ -79,9 +79,9 @@ def test():
         x_data, y_data = x_data.to(device), y_data.to(device)
 
         y_pred = model(x_data)
-
+        # 모든 배치의 손실을 더함
         loss += criterion(y_pred, y_data).item()
-
+        # 모델의 출력에서 최댓값이 있는 위치의 클래스를 출력 (one-hot encoding -> 최댓값의 클래스)
         pred = torch.max(y_pred, 1)[1]
         correct += pred.eq(y_data.view_as(pred)).cpu().sum()
 
