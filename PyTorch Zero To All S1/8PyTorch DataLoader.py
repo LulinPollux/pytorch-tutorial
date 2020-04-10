@@ -32,9 +32,9 @@ class Model(torch.nn.Module):
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        out1 = self.sigmoid(self.linear1(x))
-        out2 = self.sigmoid(self.linear2(out1))
-        y_pred = self.sigmoid(self.linear3(out2))
+        x = self.sigmoid(self.linear1(x))
+        x = self.sigmoid(self.linear2(x))
+        y_pred = self.sigmoid(self.linear3(x))
         return y_pred
 
 
