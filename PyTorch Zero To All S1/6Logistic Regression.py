@@ -17,7 +17,7 @@ class Model(torch.nn.Module):
 
 model = Model()
 
-criterion = torch.nn.BCELoss()  # Binary Cross Entrophy
+criterion = torch.nn.BCELoss()  # Binary Cross Entropy
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 for epoch in range(1000):
