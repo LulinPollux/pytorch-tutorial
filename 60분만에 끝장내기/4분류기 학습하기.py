@@ -1,4 +1,5 @@
 import torch
+import torch.utils.data
 import torchvision
 import torchvision.transforms as transform
 
