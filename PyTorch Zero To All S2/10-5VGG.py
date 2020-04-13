@@ -7,7 +7,7 @@ vis = visdom.Visdom()
 vis.close(env='main')
 
 
-def loss_tracker(loss_plot, loss_value, num):
+def loss_graph(loss_plot, loss_value, num):
     vis.line(X=num, Y=loss_value, win=loss_plot, update='append')
 
 
@@ -71,10 +71,10 @@ for epoch in range(100):
         epoch_loss += loss.item()
         running_loss += loss.item()
         if i % 10 == 0:
-            loss_tracker(running_plt, torch.tensor([running_loss / 10]), torch.tensor([i + epoch * len(trainloader)]))
+            loss_graph(running_plt, torch.tensor([running_loss / 10]), torch.tensor([i + epoch * len(trainloader)]))
             running_loss = 0.0
 
-    loss_tracker(epoch_plt, torch.tensor([epoch_loss / len(trainloader)]), torch.tensor([epoch + 1]))
+    loss_graph(epoch_plt, torch.tensor([epoch_loss / len(trainloader)]), torch.tensor([epoch + 1]))
     lr_sche.step(epoch)
 
 print('Finished Training')
