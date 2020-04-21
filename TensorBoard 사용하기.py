@@ -111,7 +111,7 @@ def test(model, test_loader, criterion):
 
             output = model(x_data)
 
-            test_loss += criterion(output, y_data, reduction='sum').item()
+            test_loss += criterion(output, y_data).item()
 
             pred = torch.max(output, 1)[1]
             correct += pred.eq(y_data.view_as(pred)).sum().item()
