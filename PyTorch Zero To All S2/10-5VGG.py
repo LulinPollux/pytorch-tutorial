@@ -40,7 +40,7 @@ vgg16.to(device)
     3. 손실 함수와 Optimizer 정의하기
 '''
 criterion = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(vgg16.parameters(), lr=0.005, momentum=0.9)
+optimizer = torch.optim.SGD(vgg16.parameters(), lr=0.01, momentum=0.9)
 lr_sche = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.9)
 
 '''
@@ -69,13 +69,11 @@ for epoch in range(100):
         optimizer.step()
 
         epoch_loss += loss.item()
-        running_loss += loss.item()
-        if i % 10 == 0:
-            loss_graph(running_plt, torch.tensor([running_loss / 10]), torch.tensor([i + epoch * len(trainloader)]))
-            running_loss = 0.0
+        running_loss = loss.item()
+        loss_graph(running_plt, torch.tensor([running_loss]), torch.tensor([i + epoch * len(trainloader)]))
 
     loss_graph(epoch_plt, torch.tensor([epoch_loss / len(trainloader)]), torch.tensor([epoch + 1]))
-    lr_sche.step(epoch)
+    lr_sche.step()
 
 print('Finished Training')
 
