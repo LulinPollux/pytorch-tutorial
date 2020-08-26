@@ -1,14 +1,7 @@
-# Develop environment
+# Repository ignores
 .idea/
-.vscode/
-
-# dataset files
 data/
-
-# weight files
 *.pth
-
-# tensorboard files
 runs/
 
 # Byte-compiled / optimized / DLL files
