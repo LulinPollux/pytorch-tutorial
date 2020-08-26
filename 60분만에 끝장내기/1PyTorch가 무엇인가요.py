@@ -1,3 +1,8 @@
+# PYTORCH가 무엇인가요?
+# Python 기반의 과학 연산 패키지로 다음과 같은 두 집단을 대상으로 합니다:
+# NumPy를 대체하면서 GPU를 이용한 연산이 필요한 경우
+# 최대한의 유연성과 속도를 제공하는 딥러닝 연구 플랫폼이 필요한 경우
+
 import torch
 
 '''
@@ -44,9 +49,12 @@ result = torch.empty(5, 3)
 torch.add(x, y, out=result)
 print(result)
 
-# 덧셈: In-place 방식
+# 덧셈: 바꿔치기(in-place) 방식
 y.add_(x)
 print(y)
+# Note
+# 바꿔치기(in-place) 방식으로 tensor의 값을 변경하는 연산 뒤에는 _가 붙습니다.
+# 예: x.copy_(y), x.t_()는 x를 변경합니다.
 
 # NumPy스러운 인덱싱 표기 방법을 사용
 print(x[:, 1])
